@@ -30,19 +30,13 @@ public class Sign : MonoBehaviour {
     public void updateSignType(SignType newType)
     {
         type = newType;
-        string modelpath;
-        GameObject go = null;
 
         switch (type)
         {
             case SignType.OneWayLeft:
-                modelpath = "oneWaySign";
-                go = Instantiate(Resources.Load(modelpath)) as GameObject;
                 break;
         }
-        MeshFilter mf1 = (MeshFilter)GameObject.Find("/oneWaySignPrefab/oneWay_cube_01").GetComponent("MeshFilter");
         Mesh m1 = (Mesh)Mesh.Instantiate(mf1.mesh);
-        MeshFilter mf2 = (MeshFilter)GameObject.Find("/" + this.gameObject.name + "/stopSign_cube_01").GetComponent("MeshFilter");
         mf2.mesh = m1;
 
     }
