@@ -36,9 +36,10 @@ public class PathNode : MonoBehaviour {
 		//dirToPrevious = previous.transform.position - transform.position;
 	}
 	
-	void OnTriggerEnter(Collider other) {
+	void OnTriggerExit(Collider other) {
 		if( type == "intersection" ){
 			//Left, Right, Streight
+			Debug.Log ("intersection");
 			PathNode left =  null;
 			PathNode right =  null;
 			PathNode streight = null;

@@ -30,7 +30,7 @@ public class Game : MonoBehaviour {
 	}*/
 	public void PutAtNode(CarLogic go, PathNode start){
 		go.transform.position = start.transform.position;
-		
+		go.rigidbody.velocity = start.next.transform.position - go.transform.position;
 	}
 }
 
