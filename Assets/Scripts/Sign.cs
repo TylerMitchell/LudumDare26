@@ -40,10 +40,9 @@ public class Sign : MonoBehaviour {
                 go = Instantiate(Resources.Load(modelpath)) as GameObject;
                 break;
         }
-
-        MeshFilter mf1 = (MeshFilter)go.GetComponent("MeshFilter");
+        MeshFilter mf1 = (MeshFilter)GameObject.Find("/oneWaySignPrefab/oneWay_cube_01").GetComponent("MeshFilter");
         Mesh m1 = (Mesh)Mesh.Instantiate(mf1.mesh);
-        MeshFilter mf2 = (MeshFilter)GetComponent("MeshFilter");
+        MeshFilter mf2 = (MeshFilter)GameObject.Find("/" + this.gameObject.name + "/stopSign_cube_01").GetComponent("MeshFilter");
         mf2.mesh = m1;
 
     }
