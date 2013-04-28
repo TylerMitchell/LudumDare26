@@ -2,10 +2,10 @@ using UnityEngine;
 using System.Collections;
 
 public class CarLogic : MonoBehaviour {
-
+	public PathNode start;
 	// Use this for initialization
 	void Start () {
-	
+		GameObject.Find ("GameController").GetComponent<Game>().PutAtNode(this, start);
 	}
 	
 	// Update is called once per frame
@@ -14,9 +14,10 @@ public class CarLogic : MonoBehaviour {
 	}
 	
 	public string ChoosePath(string options){
-		if( options.Contains("Left") ){ Debug.Log ("left!"); return "Left"; }
-		if( options.Contains("Right") ){ Debug.Log ("right!"); return "Right"; }
-		if( options.Contains("Streight") ){ Debug.Log ("streight!"); return "Streight"; }
+		//return "Streight";
+		if( options.Contains("Left") ){ return "Left"; }
+		if( options.Contains("Right") ){ return "Right"; }
+		if( options.Contains("Streight") ){ return "Streight"; }
 		return "FAIL";
 	}
 }
