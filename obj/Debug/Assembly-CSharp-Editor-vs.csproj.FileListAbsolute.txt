@@ -1,0 +1,12 @@
+C:\Workspace\LudumDare26\Temp\bin\Debug\Assembly-CSharp-Editor.dll
+C:\Workspace\LudumDare26\Temp\bin\Debug\Assembly-CSharp-Editor.pdb
+C:\Workspace\LudumDare26\Temp\bin\Debug\UnityEditor.dll
+C:\Workspace\LudumDare26\Temp\bin\Debug\UnityEditor.Graphs.dll
+C:\Workspace\LudumDare26\Temp\bin\Debug\UnityEngine.dll
+C:\Workspace\LudumDare26\Temp\bin\Debug\Mono.Cecil.dll
+C:\Workspace\LudumDare26\Temp\bin\Debug\nunit.framework.dll
+C:\Workspace\LudumDare26\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Workspace\LudumDare26\Temp\bin\Debug\Assembly-CSharp.pdb
+C:\Workspace\LudumDare26\obj\Debug\Assembly-CSharp-Editor-vs.csprojResolveAssemblyReference.cache
+C:\Workspace\LudumDare26\obj\Debug\Assembly-CSharp-Editor.dll
+C:\Workspace\LudumDare26\obj\Debug\Assembly-CSharp-Editor.pdb
