@@ -25,6 +25,7 @@ public class PathNode : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		this.gameObject.renderer.enabled = false;
+		signRef = new Sign();
 	}
 	
 	// Update is called once per frame
@@ -87,7 +88,7 @@ public class PathNode : MonoBehaviour {
                     if (streight != null) { options += "Streight"; }
                     string dir = other.GetComponent<CarLogic>().ChoosePath(options);
                     if (dir == "Left") { TowardNode(other, left); }
-                    if (dir == "Right") { TowardNode(other, right); }
+                    if (dir == "Right") { Debug.Log ("Heading Right"); TowardNode(other, right); }
                     if (dir == "Streight") { TowardNode(other, streight); }
                     break;
                 case SignType.OneWayLeft:
@@ -110,6 +111,7 @@ public class PathNode : MonoBehaviour {
 	public void TowardNode(Collider car, PathNode dir){
 		car.rigidbody.velocity = dir.transform.position - car.transform.position;
 		car.rigidbody.velocity.Normalize();
+		car.rigidbody.velocity *= 0.5f;
 		float rotate = Vector3.Angle(dir.transform.position - transform.position, car.transform.forward);
 		car.transform.rotation = car.transform.rotation * Quaternion.Euler(0, rotate, 0);
 	}
