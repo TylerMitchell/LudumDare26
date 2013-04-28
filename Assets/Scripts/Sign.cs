@@ -30,45 +30,14 @@ public class Sign : MonoBehaviour {
     public void updateSignType(SignType newType)
     {
         type = newType;
-        string modelpath = string.Empty;
-        string texturepath = string.Empty;
 
         switch (type)
         {
             case SignType.OneWayLeft:
-                modelpath = "/oneWaySign_v3/oneWay_cube_01";
-                texturepath = "Textures/oneWaySign_text";
-                break;
-            case SignType.OneWayRight:
-                modelpath = "/oneWaySign_v3/oneWay_cube_01";
-                texturepath = "Textures/oneWaySign_text";
-                break;
-            case SignType.Speed15:
-                modelpath = "/speedLimitSign_v3/speedLimit_cube_01";
-                texturepath = "Textures/speedLimitSign_text";
-                break;
-            case SignType.Speed30:
-                modelpath = "/speedLimitSign_v3/speedLimit_cube_01";
-                texturepath = "Textures/speedLimitSign_text";
-                break;
-            case SignType.Stop:
-                modelpath = "/stopSign_v3/stopSign_cube_01";
-                texturepath = "Textures/stopSignCubeText";
-                break;
-            case SignType.None:
-                modelpath = "/defaultSignDupe/stopSign_cube_01";
-                texturepath = null;
                 break;
         }
-        MeshFilter mf1 = (MeshFilter)GameObject.Find(modelpath).GetComponent("MeshFilter");
         Mesh m1 = (Mesh)Mesh.Instantiate(mf1.mesh);
-        MeshFilter mf2 = (MeshFilter)GameObject.Find("/" + this.gameObject.name + "/stopSign_cube_01").GetComponent("MeshFilter");
         mf2.mesh = m1;
-        Texture newTexture = (Texture)Resources.Load(texturepath);
-        print(newTexture);
-        print(GameObject.Find("/" + this.gameObject.name + "/stopSign_cube_01").renderer.material);
-        GameObject.Find("/" + this.gameObject.name + "/stopSign_cube_01").renderer.material.SetTexture("newTexture", newTexture);
-        //.material.mainTexture = newTexture;
 
     }
 }
