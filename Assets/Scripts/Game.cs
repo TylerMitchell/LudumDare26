@@ -3,19 +3,19 @@ using System.Collections;
 
 public class Game : MonoBehaviour {
 	public GameObject[] nodes;
-	public GameObject start;
+	//public GameObject start;
 	// Use this for initialization
 	void Start () {
 		//gather all objects tagged pathnode
 		nodes = GameObject.FindGameObjectsWithTag("PathNode");
 		foreach(var node in nodes){ 
 			var nodeScript = node.GetComponent<PathNode>();
-			if( nodeScript.type == "Begin" ){ 
+			/*if( nodeScript.type == "Begin" ){ 
 				start = node; 
-			} 
+			} */
 			nodeScript.CalcDirs();
 		}
-		PutAtStart( GameObject.Find("car") );
+		//PutAtStart( GameObject.Find("car") );
 		
 	}
 	
@@ -24,9 +24,13 @@ public class Game : MonoBehaviour {
 		
 	}
 	
-	public void PutAtStart(GameObject go){
+	/*public void PutAtStart(GameObject go){
 		go.transform.position = start.transform.position;
 		
+	}*/
+	public void PutAtNode(CarLogic go, PathNode start){
+		go.transform.position = start.transform.position;
+		go.rigidbody.velocity = start.next.transform.position - go.transform.position;
 	}
 }
 

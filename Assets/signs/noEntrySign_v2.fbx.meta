@@ -1,20 +1,20 @@
 fileFormatVersion: 2
-guid: 3cf11d0ae6a709e428904c987bb9bf74
+guid: be14f962c24887f4c86dd92b81538003
 ModelImporter:
   serializedVersion: 15
   fileIDToRecycleName:
-    100000: stopSign_pole_01
-    100002: //RootNode
-    100004: stopSign_sign_01
-    400000: stopSign_pole_01
-    400002: //RootNode
-    400004: stopSign_sign_01
-    2300000: stopSign_pole_01
-    2300002: stopSign_sign_01
-    3300000: stopSign_pole_01
-    3300002: stopSign_sign_01
-    4300000: stopSign_sign_01
-    4300002: stopSign_pole_01
+    100000: noEntry_cube_01
+    100002: noEntry_pole_01
+    100004: //RootNode
+    400000: noEntry_cube_01
+    400002: noEntry_pole_01
+    400004: //RootNode
+    2300000: noEntry_cube_01
+    2300002: noEntry_pole_01
+    3300000: noEntry_cube_01
+    3300002: noEntry_pole_01
+    4300000: noEntry_pole_01
+    4300002: noEntry_cube_01
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -32,7 +32,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .100000001
+    globalScale: .00999999978
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
