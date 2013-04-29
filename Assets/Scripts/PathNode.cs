@@ -31,7 +31,7 @@ public class PathNode : MonoBehaviour {
 	public void CalcDirs(){
 	}
 	
-	void OnTriggerEnter(Collider other) {
+	/*void OnTriggerEnter(Collider other) {
 		if( type == "intersection" ){
 			//Left, Right, Streight
 			//Debug.Log ("intersection");
@@ -73,6 +73,7 @@ public class PathNode : MonoBehaviour {
 					streight = south;
 				}
 			}
+			
 			switch (signRef.type)
             {
                 case SignType.None:
@@ -100,26 +101,31 @@ public class PathNode : MonoBehaviour {
 		else{
 			TowardNode(other, next);
 		}
-    }
+	}
+    
 	
 	public void TowardNode(Collider car, PathNode dir){
-		/*Vector3 tVel = (dir.transform.position - car.transform.position);
+		Vector3 tVel = (dir.transform.position - car.transform.position);
 		tVel.y = 0.0f;
 		car.rigidbody.velocity = tVel;
 		car.rigidbody.velocity.Normalize();
 		car.rigidbody.velocity *= 0.5f;
 		float rotate = Vector3.Angle(dir.transform.position - transform.position, car.transform.forward);
-		car.transform.rotation = car.transform.rotation * Quaternion.Euler(0, rotate, 0);*/
+		car.transform.rotation = car.transform.rotation * Quaternion.Euler(0, rotate, 0);
 		//if( Object.ReferenceEquals(dir, next) ){}
+		//Debug.Log ("HIT!");
 		CarLogic script = car.GetComponent<CarLogic>();
-		script.betweenA = script.betweenB;
-		script.betweenB = dir;
-		script.progress = 0.0f;
-		Vector3 vec2 = script.betweenB.transform.position - script.betweenA.transform.position;
-		Vector2 v1 = new Vector2(1.0f, 0.0f);
-		Vector2 v2 = new Vector2(vec2.x, vec2.z);
-		script.ds = script.baseSpeed * 1/Vector3.Magnitude(script.betweenB.transform.position - script.betweenA.transform.position);
-		car.transform.eulerAngles = new Vector3(0.0f, Vector2.Angle(v1, v2) + 90, 0.0f);
-	}
+		if( script.progress > 0.2f ){
+			script.betweenA = script.betweenB;
+			script.betweenB = dir;
+			script.progress = 0.0f;
+			Debug.Log(Vector3.Magnitude(script.betweenB.transform.position - script.betweenA.transform.position));
+			Vector3 vec2 = script.betweenB.transform.position - script.betweenA.transform.position;
+			Vector2 v1 = new Vector2(1.0f, 0.0f);
+			Vector2 v2 = new Vector2(vec2.x, vec2.z);
+			script.ds = script.baseSpeed * 1/Vector3.Magnitude(vec2);
+			car.transform.eulerAngles = new Vector3(0.0f, Vector2.Angle(v1, v2) + 90, 0.0f);
+		}
+	}*/
 	
 }
