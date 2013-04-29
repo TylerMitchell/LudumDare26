@@ -14,10 +14,6 @@ public class PathNode : MonoBehaviour {
 
     public Sign signRef;
 	
-	public UnityEngine.Vector3 dirFromPrevious;
-	public UnityEngine.Vector3 dirToNext;
-	public UnityEngine.Vector3 dirFromNext;
-	public UnityEngine.Vector3 dirToPrevious;
 	public string behavior;
 	public string type;
 	public string signType = null;
@@ -25,17 +21,14 @@ public class PathNode : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		this.gameObject.renderer.enabled = false;
+		signRef = new Sign();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	}
+	}	
 	
 	public void CalcDirs(){
-		//dirFromPrevious = transform.position - previous.transform.position;
-		//dirToNext = next.transform.position - transform.position;
-		//dirFromNext = transform.position - next.transform.position;
-		//dirToPrevious = previous.transform.position - transform.position;
 	}
 	
 	void OnTriggerExit(Collider other) {
@@ -72,7 +65,7 @@ public class PathNode : MonoBehaviour {
 				}
 				//heading South: left is East; right is West
 				else{ //heading South
-					//Debug.Log ("Detected South!");
+					Debug.Log ("Detected South!");
 					left = east;
 					right = west;
 					streight = south;
@@ -87,7 +80,7 @@ public class PathNode : MonoBehaviour {
                     if (streight != null) { options += "Streight"; }
                     string dir = other.GetComponent<CarLogic>().ChoosePath(options);
                     if (dir == "Left") { TowardNode(other, left); }
-                    if (dir == "Right") { TowardNode(other, right); }
+                    if (dir == "Right") { Debug.Log ("Heading Right"); TowardNode(other, right); }
                     if (dir == "Streight") { TowardNode(other, streight); }
                     break;
                 case SignType.OneWayLeft:
@@ -108,10 +101,17 @@ public class PathNode : MonoBehaviour {
     }
 	
 	public void TowardNode(Collider car, PathNode dir){
-		car.rigidbody.velocity = dir.transform.position - car.transform.position;
+		/*Vector3 tVel = (dir.transform.position - car.transform.position);
+		tVel.y = 0.0f;
+		car.rigidbody.velocity = tVel;
 		car.rigidbody.velocity.Normalize();
+		car.rigidbody.velocity *= 0.5f;
 		float rotate = Vector3.Angle(dir.transform.position - transform.position, car.transform.forward);
-		car.transform.rotation = car.transform.rotation * Quaternion.Euler(0, rotate, 0);
+		car.transform.rotation = car.transform.rotation * Quaternion.Euler(0, rotate, 0);*/
+		//if( Object.ReferenceEquals(dir, next) ){}
+		CarLogic script = car.GetComponent<CarLogic>();
+		script.betweenA = this;
+		script.betweenB = dir;
 	}
 	
 }
