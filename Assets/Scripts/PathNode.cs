@@ -31,14 +31,16 @@ public class PathNode : MonoBehaviour {
 	public void CalcDirs(){
 	}
 	
-	void OnTriggerExit(Collider other) {
+	void OnTriggerEnter(Collider other) {
 		if( type == "intersection" ){
 			//Left, Right, Streight
 			//Debug.Log ("intersection");
 			PathNode left =  null;
 			PathNode right =  null;
 			PathNode streight = null;
-			Vector3 fw = other.rigidbody.velocity;
+			//Vector3 fw = other.rigidbody.velocity;
+			CarLogic tComp = other.GetComponent<CarLogic>();
+			Vector3 fw = tComp.betweenB.transform.position - tComp.betweenA.transform.position;
 			if( Math.Abs(fw.x) > Math.Abs(fw.z) ){
 				//heading east: left is north; right is south
 				if( fw.x >= 0 ){ //heading East
@@ -110,8 +112,14 @@ public class PathNode : MonoBehaviour {
 		car.transform.rotation = car.transform.rotation * Quaternion.Euler(0, rotate, 0);*/
 		//if( Object.ReferenceEquals(dir, next) ){}
 		CarLogic script = car.GetComponent<CarLogic>();
-		script.betweenA = this;
+		script.betweenA = script.betweenB;
 		script.betweenB = dir;
+		script.progress = 0.0f;
+		Vector3 vec2 = script.betweenB.transform.position - script.betweenA.transform.position;
+		Vector2 v1 = new Vector2(1.0f, 0.0f);
+		Vector2 v2 = new Vector2(vec2.x, vec2.z);
+		script.ds = script.baseSpeed * 1/Vector3.Magnitude(script.betweenB.transform.position - script.betweenA.transform.position);
+		car.transform.eulerAngles = new Vector3(0.0f, Vector2.Angle(v1, v2) + 90, 0.0f);
 	}
 	
 }
