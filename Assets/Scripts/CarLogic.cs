@@ -75,10 +75,7 @@ public class CarLogic : MonoBehaviour {
 	                    if (dir == "Right") { Debug.Log ("Heading Right"); TowardNode(right); }
 	                    if (dir == "Streight") { TowardNode(streight); }
 	                    break;
-	                case SignType.OneWayLeft:
-	                    break;
-	                case SignType.OneWayRight:
-	                    break;
+	                
 	                case SignType.Speed15:
 	                    break;
 	                case SignType.Speed30:

@@ -85,10 +85,19 @@ public class PathNode : MonoBehaviour {
                     if (dir == "Left") { TowardNode(other, left); }
                     if (dir == "Right") { Debug.Log ("Heading Right"); TowardNode(other, right); }
                     if (dir == "Streight") { TowardNode(other, streight); }
+                    print("zoinks");
                     break;
-                case SignType.OneWayLeft:
+                case SignType.OneWayNorth:
+                    TowardNode(other, north);
                     break;
-                case SignType.OneWayRight:
+                case SignType.OneWaySouth:
+                    TowardNode(other, south);
+                    break;
+                case SignType.OneWayEast:
+                    TowardNode(other, east);
+                    break;
+                case SignType.OneWayWest:
+                    TowardNode(other, west);
                     break;
                 case SignType.Speed15:
                     break;

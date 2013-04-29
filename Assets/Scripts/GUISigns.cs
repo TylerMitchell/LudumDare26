@@ -17,30 +17,42 @@ public class GUISigns : MonoBehaviour {
 	    
 	}
 
-    void OnGUI()
+    void OnGUI() 
     {
         GUI.enabled = GUIenabled;
-        var stopButton = GUI.Button(new Rect(900, 10, 100, 25), "STOP");
-        var leftButton = GUI.Button(new Rect(900, 40, 100, 25), "One way (left)");
-        var rightButton = GUI.Button(new Rect(900, 70, 100, 25), "One way (right)");
-        var speed15Button = GUI.Button(new Rect(900, 100, 100, 25), "Speed Limit(15)");
-        var speed30Button = GUI.Button(new Rect(900, 130, 100, 25), "Speed Limit(30)");
-        var removeButton = GUI.Button(new Rect(900, 160, 100, 25), "Remove Sign");
+        var stopButton = GUI.Button(new Rect(900, 10, 110, 25), "STOP");
+        var northButton = GUI.Button(new Rect(900, 40, 110, 25), "One way (north)");
+        var southButton = GUI.Button(new Rect(900, 70, 110, 25), "One way (south)");
+        var eastButton = GUI.Button(new Rect(900, 100, 110, 25), "One way (east)");
+        var westButton = GUI.Button(new Rect(900, 130, 110, 25), "One way (west)");
+        var speed15Button = GUI.Button(new Rect(900, 160, 110, 25), "Speed Limit(15)");
+        var speed30Button = GUI.Button(new Rect(900, 190, 110, 25), "Speed Limit(30)");
+        var removeButton = GUI.Button(new Rect(900, 220, 110, 25), "Remove Sign");
 
-        GUI.enabled = false;
         if (stopButton)
         {
-            selectedSign.updateSignType(SignType.Stop);
+            selectedSign.updateSignType(SignType.Stop); 
         }
 
-        if (leftButton)
+        if (selectedSign.pathNodeRef.north == null) { GUI.enabled = false; } else { GUI.enabled = true; }
+        if (northButton)
         {
-            selectedSign.updateSignType(SignType.OneWayLeft);
+            selectedSign.updateSignType(SignType.OneWayNorth);
         }
-
-        if (rightButton)
+        if (selectedSign.pathNodeRef.south == null) { GUI.enabled = false; } else { GUI.enabled = true; }
+        if (southButton)
         {
-            selectedSign.updateSignType(SignType.OneWayRight);
+            selectedSign.updateSignType(SignType.OneWaySouth);
+        }
+        if (selectedSign.pathNodeRef.east == null) { GUI.enabled = false; } else { GUI.enabled = true; }
+        if (eastButton)
+        {
+            selectedSign.updateSignType(SignType.OneWayEast);
+        }
+        if (selectedSign.pathNodeRef.west == null) { GUI.enabled = false; } else { GUI.enabled = true; }
+        if (westButton)
+        {
+            selectedSign.updateSignType(SignType.OneWayWest);
         }
 
         if (speed15Button)
