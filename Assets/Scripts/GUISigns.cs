@@ -31,7 +31,7 @@ public class GUISigns : MonoBehaviour {
 
         if (stopButton)
         {
-            selectedSign.updateSignType(SignType.Stop);
+            selectedSign.updateSignType(SignType.Stop); 
         }
 
         if (selectedSign.pathNodeRef.north == null) { GUI.enabled = false; } else { GUI.enabled = true; }
