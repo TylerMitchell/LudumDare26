@@ -39,14 +39,18 @@ public class Game : MonoBehaviour {
 	}
 	
 	public void addCar(){
-		/*Random getRandom = new Random();
+		System.Random getRandom = new System.Random();
 		int rand = 1;
 		PathNode pn;
 		do{
 			rand = getRandom.Next (0, nodes.Length);
 			pn = nodes[rand].GetComponent<PathNode>();
-		}while(pn.type == "intersection")*/
-		
+		}while(pn.type == "intersection");
+		//Instantiate(Resources.Load("car"));
+		GameObject car = (GameObject)Instantiate(GameObject.Find("/Car1"));
+		CarLogic script = car.GetComponent<CarLogic>();
+		script.betweenB = pn;
+		script.betweenA = pn.previous;
 	}
 }
 

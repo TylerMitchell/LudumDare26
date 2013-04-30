@@ -8,6 +8,8 @@ public class GUIScore : MonoBehaviour {
 	public bool gameOver = false;
 	public Game game;
 	
+	public int lastScore = 0;
+	
 	// Use this for initialization
 	void Start () {
 		game = GetComponent<Game>();
@@ -21,6 +23,10 @@ public class GUIScore : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(!gameOver){ score = (Time.frameCount/60) * game.numCars; }
+		if(!gameOver){ 
+			score = (Time.frameCount/60) * game.numCars; 
+			if( (score%(game.numCars*3) == 0) && score != 0 && score != lastScore){ game.addCar(); }
+			lastScore = score;
+		}
 	}
 }

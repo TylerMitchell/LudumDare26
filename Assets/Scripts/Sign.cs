@@ -16,8 +16,9 @@ public class Sign : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
          guiSignRef = GameObject.Find("GameController").GetComponent<GUISigns>();
+		 
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
         print(type);
