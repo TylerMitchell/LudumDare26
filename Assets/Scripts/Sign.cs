@@ -3,7 +3,7 @@ using System.Collections;
 
 public enum SignType
 {
-    None, Stop, OneWayNorth, OneWaySouth, OneWayEast, OneWayWest, Speed15, Speed30
+    None,OneWayNorth, OneWaySouth, OneWayEast, OneWayWest
 }
 
 public class Sign : MonoBehaviour {
@@ -20,6 +20,7 @@ public class Sign : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        print(type);
 	}
 
     void OnMouseDown()
@@ -54,21 +55,6 @@ public class Sign : MonoBehaviour {
             case SignType.OneWayWest:
                 modelpath = "/oneWaySign_v3/oneWay_cube_01";
                 texturepath = "Textures/oneWaySign_text";
-                yRotation = 180;
-                break;
-            case SignType.Speed15:
-                modelpath = "/speedLimitSign_v3/speedLimit_cube_01";
-                texturepath = "Textures/speedLimitSign_text";
-                yRotation = 180;
-                break;
-            case SignType.Speed30:
-                modelpath = "/speedLimitSign_v3/speedLimit_cube_01";
-                texturepath = "Textures/speedLimitSign_text";
-                yRotation = 180;
-                break;
-            case SignType.Stop:
-                modelpath = "/stopSign_v3/stopSign_cube_01";
-                texturepath = "Textures/stopSignCubeText";
                 yRotation = 180;
                 break;
             case SignType.None:
