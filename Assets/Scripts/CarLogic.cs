@@ -63,7 +63,6 @@ public class CarLogic : MonoBehaviour {
 					}
 				}
 
-                print(betweenB.signRef.type);
 				switch (betweenB.signRef.type)
 	            {
 	                case SignType.None:
