@@ -9,6 +9,7 @@ public class CarLogic : MonoBehaviour {
 	public float progress = 0.0f;
 	public float baseSpeed = 0.01f;
 	public float ds;
+	public bool paused = false;
 	// Use this for initialization
 	void Start () {
 		//GameObject.Find ("GameController").GetComponent<Game>().PutAtNode(this, start);
@@ -20,7 +21,7 @@ public class CarLogic : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(progress < 1.0f){ progress += ds; }
-		transform.position = Vector3.Lerp(betweenA.transform.position, betweenB.transform.position, progress);
+		if(!paused){ transform.position = Vector3.Lerp(betweenA.transform.position, betweenB.transform.position, progress); }
 		if(progress >= 1.0f){
 			if( betweenB.type == "intersection" ){
 				//Left, Right, Streight
@@ -85,7 +86,8 @@ public class CarLogic : MonoBehaviour {
 	            }
 			}
 			else{
-				TowardNode(betweenB.next);
+				if(betweenB.next == betweenA){ TowardNode(betweenB.previous);}
+				else{ TowardNode(betweenB.next); }
 			}
 		}
 	}
@@ -118,6 +120,13 @@ public class CarLogic : MonoBehaviour {
 			Vector2 v2 = new Vector2(vec2.x, vec2.z);
 			ds = baseSpeed * 1/Vector3.Magnitude(vec2);
 			transform.eulerAngles = new Vector3(0.0f, Vector2.Angle(v1, v2) + 90, 0.0f);
+		}
+	}
+	
+	void OnCollisionEnter( Collision collision){
+		if( collision.gameObject.tag == "car"){
+			GameObject.Find ("GameController").GetComponent<GUIScore>().gameOver = true;
+			paused = true;
 		}
 	}
 }

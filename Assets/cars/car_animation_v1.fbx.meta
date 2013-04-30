@@ -1,0 +1,143 @@
+fileFormatVersion: 2
+guid: 66b1b9eea59bdb948acc40a93fcc9aa2
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: car_body_01
+    100004: car_bumper_back_01
+    100006: car_bumper_front_01
+    100008: car_headLight_front_l_01
+    100010: car_headLight_front_r_01
+    100012: car_headLight_rear_l_01
+    100014: car_headLight_rear_r_01
+    100016: car_tire_front_l_01
+    100018: car_tire_front_r_01
+    100020: car_tire_rear_l_01
+    100022: car_tire_rear_r_01
+    100024: grp_car_bumper_01
+    100026: grp_car_headlights_01
+    100028: grp_car_tires_01
+    400000: //RootNode
+    400002: car_body_01
+    400004: car_bumper_back_01
+    400006: car_bumper_front_01
+    400008: car_headLight_front_l_01
+    400010: car_headLight_front_r_01
+    400012: car_headLight_rear_l_01
+    400014: car_headLight_rear_r_01
+    400016: car_tire_front_l_01
+    400018: car_tire_front_r_01
+    400020: car_tire_rear_l_01
+    400022: car_tire_rear_r_01
+    400024: grp_car_bumper_01
+    400026: grp_car_headlights_01
+    400028: grp_car_tires_01
+    2300000: car_body_01
+    2300002: car_bumper_back_01
+    2300004: car_bumper_front_01
+    2300006: car_headLight_front_l_01
+    2300008: car_headLight_front_r_01
+    2300010: car_headLight_rear_l_01
+    2300012: car_headLight_rear_r_01
+    2300014: car_tire_front_l_01
+    2300016: car_tire_front_r_01
+    2300018: car_tire_rear_l_01
+    2300020: car_tire_rear_r_01
+    3300000: car_body_01
+    3300002: car_bumper_back_01
+    3300004: car_bumper_front_01
+    3300006: car_headLight_front_l_01
+    3300008: car_headLight_front_r_01
+    3300010: car_headLight_rear_l_01
+    3300012: car_headLight_rear_r_01
+    3300014: car_tire_front_l_01
+    3300016: car_tire_front_r_01
+    3300018: car_tire_rear_l_01
+    3300020: car_tire_rear_r_01
+    4300000: car_body_01
+    4300002: car_headLight_front_l_01
+    4300004: car_headLight_front_r_01
+    4300006: car_headLight_rear_l_01
+    4300008: car_headLight_rear_r_01
+    4300010: car_bumper_front_01
+    4300012: car_bumper_back_01
+    4300014: car_tire_front_l_01
+    4300016: car_tire_front_r_01
+    4300018: car_tire_rear_l_01
+    4300020: car_tire_rear_r_01
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations:
+    - name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      transformMask: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 2
+  userData: 
