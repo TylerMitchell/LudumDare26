@@ -1,13 +1,18 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class Game : MonoBehaviour {
 	public GameObject[] nodes;
+	public GameObject[] cars;
+	public int numCars = 0;
 	//public GameObject start;
 	// Use this for initialization
 	void Start () {
 		//gather all objects tagged pathnode
 		nodes = GameObject.FindGameObjectsWithTag("PathNode");
+		cars = GameObject.FindGameObjectsWithTag("car");
+		numCars = cars.Length;
 		foreach(var node in nodes){ 
 			var nodeScript = node.GetComponent<PathNode>();
 			/*if( nodeScript.type == "Begin" ){ 
@@ -31,6 +36,17 @@ public class Game : MonoBehaviour {
 	public void PutAtNode(CarLogic go, PathNode start){
 		go.transform.position = start.transform.position;
 		go.rigidbody.velocity = start.next.transform.position - go.transform.position;
+	}
+	
+	public void addCar(){
+		/*Random getRandom = new Random();
+		int rand = 1;
+		PathNode pn;
+		do{
+			rand = getRandom.Next (0, nodes.Length);
+			pn = nodes[rand].GetComponent<PathNode>();
+		}while(pn.type == "intersection")*/
+		
 	}
 }
 
