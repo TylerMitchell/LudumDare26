@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class Game : MonoBehaviour {
 	public GameObject[] nodes;
@@ -38,7 +39,14 @@ public class Game : MonoBehaviour {
 	}
 	
 	public void addCar(){
-			
+		/*Random getRandom = new Random();
+		int rand = 1;
+		PathNode pn;
+		do{
+			rand = getRandom.Next (0, nodes.Length);
+			pn = nodes[rand].GetComponent<PathNode>();
+		}while(pn.type == "intersection")*/
+		
 	}
 }
 
