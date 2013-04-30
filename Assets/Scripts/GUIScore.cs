@@ -25,7 +25,7 @@ public class GUIScore : MonoBehaviour {
 	void Update () {
 		if(!gameOver){ 
 			score = (Time.frameCount/60) * game.numCars; 
-			if( (score%(game.numCars*3) == 0) && score != 0 && score != lastScore){ game.addCar(); }
+			if( (score%(game.numCars*1) == 0) && score != 0 && score != lastScore){ game.addCar(); }
 			lastScore = score;
 		}
 	}

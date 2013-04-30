@@ -29,6 +29,10 @@ public class Game : MonoBehaviour {
 		
 	}
 	
+	void Awake(){
+		Physics.IgnoreLayerCollision(8,9, true);
+	}
+	
 	/*public void PutAtStart(GameObject go){
 		go.transform.position = start.transform.position;
 		
