@@ -20,19 +20,12 @@ public class GUISigns : MonoBehaviour {
     void OnGUI() 
     {
         GUI.enabled = GUIenabled;
-        var stopButton = GUI.Button(new Rect(900, 10, 110, 25), "STOP");
-        var northButton = GUI.Button(new Rect(900, 40, 110, 25), "One way (north)");
-        var southButton = GUI.Button(new Rect(900, 70, 110, 25), "One way (south)");
-        var eastButton = GUI.Button(new Rect(900, 100, 110, 25), "One way (east)");
-        var westButton = GUI.Button(new Rect(900, 130, 110, 25), "One way (west)");
-        var speed15Button = GUI.Button(new Rect(900, 160, 110, 25), "Speed Limit(15)");
-        var speed30Button = GUI.Button(new Rect(900, 190, 110, 25), "Speed Limit(30)");
-        var removeButton = GUI.Button(new Rect(900, 220, 110, 25), "Remove Sign");
+        var northButton = GUI.Button(new Rect(900, 10, 110, 25), "North");
+        var southButton = GUI.Button(new Rect(900, 40, 110, 25), "South");
+        var eastButton = GUI.Button(new Rect(900, 70, 110, 25), "East");
+        var westButton = GUI.Button(new Rect(900, 100, 110, 25), "West");
+        var removeButton = GUI.Button(new Rect(900, 130, 110, 25), "Remove Sign");
 
-        if (stopButton)
-        {
-            selectedSign.updateSignType(SignType.Stop); 
-        }
 
         if (selectedSign.pathNodeRef.north == null) { GUI.enabled = false; } else { GUI.enabled = true; }
         if (northButton)
@@ -54,17 +47,6 @@ public class GUISigns : MonoBehaviour {
         {
             selectedSign.updateSignType(SignType.OneWayWest);
         }
-
-        if (speed15Button)
-        {
-            selectedSign.updateSignType(SignType.Speed15);
-        }
-
-        if (speed30Button)
-        {
-            selectedSign.updateSignType(SignType.Speed30);
-        }
-
         if (removeButton)
         {
             selectedSign.updateSignType(SignType.None);

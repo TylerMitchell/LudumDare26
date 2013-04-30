@@ -21,7 +21,7 @@ public class PathNode : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		this.gameObject.renderer.enabled = false;
-		signRef = new Sign();
+		//signRef = new Sign();
 	}
 	
 	// Update is called once per frame

@@ -62,7 +62,8 @@ public class CarLogic : MonoBehaviour {
 						streight = betweenB.south;
 					}
 				}
-				
+
+                print(betweenB.signRef.type);
 				switch (betweenB.signRef.type)
 	            {
 	                case SignType.None:
@@ -74,18 +75,24 @@ public class CarLogic : MonoBehaviour {
 	                    if (dir == "Left") { TowardNode(left); }
 	                    if (dir == "Right") { Debug.Log ("Heading Right"); TowardNode(right); }
 	                    if (dir == "Streight") { TowardNode(streight); }
+                        break;
+                    case SignType.OneWayNorth:
+                        TowardNode(betweenB.north);
 	                    break;
-	                
-	                case SignType.Speed15:
-	                    break;
-	                case SignType.Speed30:
-	                    break;
-	                case SignType.Stop:
-	                    break;
+                    case SignType.OneWaySouth:
+                        TowardNode(betweenB.south);
+                        break;
+                    case SignType.OneWayEast:
+                        TowardNode(betweenB.east);
+                        break;
+                    case SignType.OneWayWest:
+                        TowardNode(betweenB.west);
+                        break;
 	            }
 			}
 			else{
-				TowardNode(betweenB.next);
+                if (betweenB.next == betweenA) { TowardNode(betweenB.previous); }
+                else { TowardNode(betweenB.next); }
 			}
 		}
 	}
@@ -112,7 +119,7 @@ public class CarLogic : MonoBehaviour {
 			betweenA = betweenB;
 			betweenB = dir;
 			progress = 0.0f;
-			Debug.Log(Vector3.Magnitude(betweenB.transform.position - betweenA.transform.position));
+			//Debug.Log(Vector3.Magnitude(betweenB.transform.position - betweenA.transform.position));
 			Vector3 vec2 = betweenB.transform.position - betweenA.transform.position;
 			Vector2 v1 = new Vector2(1.0f, 0.0f);
 			Vector2 v2 = new Vector2(vec2.x, vec2.z);
